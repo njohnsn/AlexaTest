@@ -18,8 +18,7 @@ def create_app(config_name):
     from .main import main as main_blueprint
     app.register_blueprint(main_blueprint)
 
-#    from .alexa_1_0 import alexa as alexa_1_0_blueprint
-#    app.register_blueprint(alexa_1_0_blueprint)
+    from .alexa_1_0 import alexa as alexa_1_0_blueprint
+    app.register_blueprint(alexa_1_0_blueprint)
 
     return app
-
