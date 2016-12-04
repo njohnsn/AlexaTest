@@ -1,18 +1,8 @@
-import os
-import logging
 from random import randint
-from flask import Flask, render_template
+from flask import Flask, render_template, current_app
 from flask_ask import Ask, statement, question, session
-from flask_sslify import SSLify
-from werkzeug.contrib.fixers import ProxyFix
 
-app = Flask(__name__)
-ask = Ask(app, "/")
-sslify = SSLify(app)
-
-app.wsgi_app = ProxyFix(app.wsgi_app)
-
-logging.getLogger("flask_ask").setLevel(logging.DEBUG)
+ask = Ask()
 
 @ask.launch
 def new_game():
@@ -37,6 +27,3 @@ def answer(first, second, third):
         msg = render_template('lose')
     return statement(msg)
 
-
-if __name__ == '__main__':
-    app.run()
