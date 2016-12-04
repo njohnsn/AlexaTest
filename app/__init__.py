@@ -5,7 +5,7 @@ from flask_ask import Ask, statement, question, session
 from random import randint
 
 ask = Ask()
-ask._route = "/alexa_1_0"
+ask._route = "/alexa_1_0/"
 
 def create_app(config_name):
     app = Flask(__name__)
